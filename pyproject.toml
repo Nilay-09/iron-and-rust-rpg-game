@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iron-and-rust"
+version = "1.0.3"
+description = "A Wild West terminal RPG built with Python — graph-based world, honor-driven branching, and Dead Eye combat."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Nilay Bhotmange" },
+]
+keywords = ["game", "rpg", "terminal", "cli", "western", "text-adventure", "roguelike"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Games/Entertainment :: Role-Playing",
+]
+
+# The interactive menus need InquirerPy — it's required, not optional.
+dependencies = [
+    "rich>=13.7",
+    "InquirerPy>=0.3.4",
+]
+
+[project.scripts]
+iron-rust = "iron_rust.__main__:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+iron_rust = ["assets/ascii/*.txt"]
